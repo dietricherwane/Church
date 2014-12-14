@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: MyString
+  lastname: MyString
+  amount: 1
+  offering_date: 2014-12-11
+  offering_type_id: 1
+
+two:
+  firstname: MyString
+  lastname: MyString
+  amount: 1
+  offering_date: 2014-12-11
+  offering_type_id: 1

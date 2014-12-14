@@ -1,0 +1,36 @@
+<!-- Begin Baptism -->
+<div id = "baptism_section">
+  <div class="line"></div>
+  <%#= form_tag method: :post, url: create_baptism_path do %>
+    <div class="formRow">
+      <label><%= label_tag "La date du baptême" %></label>
+      <div class="formRight">
+        <%= text_field_tag "baptism[baptism_date]", nil, placeholder: "Veuillez entrer la date du baptême", class: 'form-control maskDate' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "Le lieu du baptême" %></label>
+      <div class="formRight">
+        <%= text_field_tag "baptism[place]", nil, placeholder: "Veuillez entrer le lieu du baptême", class: 'form-control' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "Le ministère" %></label>
+      <div class="formRight">
+        <%= text_field_tag "baptism[ministry]", nil, placeholder: "Veuillez entrer le ministère où a eu lieu le baptême", class: 'form-control' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "La responsabilité" %></label>
+      <div class="formRight">
+      <%= select_tag "baptism[baptist_responsibility_id]", options_from_collection_for_select(@baptist_responsibilities, "id", "name"), prompt: "-Veuillez choisir la responsabilité-", class: "form-control" %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  <%# end %>
+  <div class="line"></div>
+</div>
+<!-- End Baptism -->

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  marital_status_id: 1
+  spouse_firstname: MyString
+  spouse_lastname: MyString
+  spouse_birthdate: 2014-12-11
+  spouse_birth_registry_number: MyString
+  number_of_children: 1
+  tribe_id: 1
+  wedding_ministry: MyString
+  wedding_church: MyString
+
+two:
+  marital_status_id: 1
+  spouse_firstname: MyString
+  spouse_lastname: MyString
+  spouse_birthdate: 2014-12-11
+  spouse_birth_registry_number: MyString
+  number_of_children: 1
+  tribe_id: 1
+  wedding_ministry: MyString
+  wedding_church: MyString

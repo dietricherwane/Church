@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_name: MyString
+  company_phone_number: MyString
+  job: MyString
+  social_status_id: 1
+
+two:
+  company_name: MyString
+  company_phone_number: MyString
+  job: MyString
+  social_status_id: 1

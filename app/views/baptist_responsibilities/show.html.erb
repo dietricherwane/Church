@@ -1,0 +1,56 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des responsabilités des baptisés</h5>
+            <span>Prise en charge des actions liées à la liste des responsabilités des baptisés.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "baptist_responsibilities/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= baptist_responsibility_messages! %>
+<!-- Widgets -->
+  <div class="widget">
+    <div class="title"><img src="<%= asset_path 'icons/dark/full2.png' %>" alt="" class="titleIcon" /><h6>Liste des responsabilités</h6></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
+      <thead>
+        <tr>
+          <th>Intitulé de la responsabilité</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless @baptist_responsibilities.blank? %>
+          <% @baptist_responsibilities.each do |baptist_responsibility| %>
+            <tr class="gradeA">
+              <% css_class = (baptist_responsibility.published == false ? 'taskD' : 'taskPr') %>
+              <td class = "<%= css_class %>">
+                <%= baptist_responsibility.name %>
+              </td>
+              <td class = "actBtns">
+                <a href="<%= edit_baptist_responsibility_path(baptist_responsibility.id) %>" class="tipS" original-title="Modifier"><%= image_tag('icons/edit.png', alt: '') %></a>
+                <% if baptist_responsibility.published == false %>
+                  <a href="<%= enable_baptist_responsibility_path(baptist_responsibility.id) %>" class="tipS" original-title="Activer"><%= image_tag('icons/updateDone.png', alt: '') %></a>
+                <% else %>
+                  <a href="<%= disable_baptist_responsibility_path(baptist_responsibility.id) %>" class="tipS" original-title="Désactiver"><%= image_tag('icons/remove.png', alt: '') %></a>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<!-- End Main content wrapper -->

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: MyString
+  lastname: MyString
+  description: MyText
+  from: 2014-12-11
+  number_of_children: 1
+  wife_husband_firstname: MyString
+  wife_husband_lastname: MyString
+
+two:
+  firstname: MyString
+  lastname: MyString
+  description: MyText
+  from: 2014-12-11
+  number_of_children: 1
+  wife_husband_firstname: MyString
+  wife_husband_lastname: MyString

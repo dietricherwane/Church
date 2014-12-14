@@ -1,0 +1,46 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Modifier un statut</h5>
+            <span>Modifications liées aux statuts des fidèles.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "status_lists/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <!-- Widgets -->
+  <%= status_list_messages! %>
+  <%= form_for @status_list, method: :post, url: update_status_list_path, html: {class: 'form'} do |f| %>
+    <fieldset>
+      <!-- Create devoted widget -->
+      <div class="widget">
+        <div class="title"><img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" /><h6>Mettre à jour le statut intitulé: <%= @status_list.name.empty? ? @status_list_name : @status_list.name %></h6></div>
+
+          <div class="formRow">
+            <label><%= f.label :name %></label>
+            <div class="formRight">
+              <%= f.text_field :name, placeholder: 'Veuillez entrer le statut', class: 'form-control' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <%= f.submit 'Valider', class: 'basic' %>
+          </div>
+      </div>
+      <!-- End Create devoted widget -->
+    </fieldset>
+  <% end %>
+
+
+</div>
+<!-- End Main content wrapper -->

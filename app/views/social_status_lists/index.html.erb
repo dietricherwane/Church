@@ -1,0 +1,45 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des statuts sociaux</h5>
+            <span>Prise en charge des actions liées à la liste des statuts sociaux des fidèles.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "social_status_lists/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <!-- Widgets -->
+  <%= social_status_list_messages! %>
+  <%= form_for @social_status_list, method: :post, url: create_social_status_list_path, html: {class: 'form'} do |f| %>
+    <fieldset>
+      <!-- Create devoted widget -->
+      <div class="widget">
+        <div class="title"><img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" /><h6>Créer un statut social et l'ajouter au système</h6></div>
+
+          <div class="formRow">
+            <label><%= f.label :name %></label>
+            <div class="formRight">
+              <%= f.text_field :name, placeholder: 'Veuillez entrer le statut social', class: 'form-control' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <%= f.submit 'Valider', class: 'basic' %>
+          </div>
+      </div>
+      <!-- End Create devoted widget -->
+    </fieldset>
+  <% end %>
+
+</div>
+<!-- End Main content wrapper -->

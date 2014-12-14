@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  baptism_date: 2014-12-11
+  place: MyString
+  ministry: MyString
+  baptist_responsibility_id: 1
+  status_id: 1
+
+two:
+  baptism_date: 2014-12-11
+  place: MyString
+  ministry: MyString
+  baptist_responsibility_id: 1
+  status_id: 1

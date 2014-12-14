@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  devoted_id: 1
+  social_status_list_id: 1
+  published: false
+
+two:
+  devoted_id: 1
+  social_status_list_id: 1
+  published: false

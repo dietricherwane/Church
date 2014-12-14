@@ -1,0 +1,64 @@
+<!-- Begin mate -->
+<div id = "mate_section">
+  <div class="line"></div>
+  <%#= form_tag method: :post, url: create_married_path do %>
+    <div class="formRow">
+      <label><%= label_tag "Nom du partenaire" %></label>
+      <div class="formRight">
+        <%= text_field_tag "married[spouse_firstname]", nil, placeholder: "Veuillez entrer le nom du partenaire", class: 'form-control' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "Prénoms du partenaire" %></label>
+      <div class="formRight">
+        <%= text_field_tag "married[spouse_lastname]", nil, placeholder: "Veuillez entrer les prénoms du partenaire", class: 'form-control' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "Le ministère de célébration" %></label>
+      <div class="formRight">
+        <%= text_field_tag "married[wedding_ministry]", nil, placeholder: "Veuillez entrer le ministère de célébration", class: 'form-control' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "L'église de célébration" %></label>
+      <div class="formRight">
+        <%= text_field_tag "married[wedding_church]", nil, placeholder: "Veuillez entrer l'église de célébration", class: 'form-control' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "Date de naissance" %></label>
+      <div class="formRight">
+        <%= text_field "married[spouse_birthdate]", nil, placeholder: "Veuillez entrer la date de naissance du partenaire", class: 'form-control maskDate' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "Numéro d'extrait de naissance" %></label>
+      <div class="formRight">
+        <%= text_field "married[spouse_birth_registry_number]", nil, placeholder: "Veuillez entrer le numéro d'extrait de naissance du partenaire", class: 'form-control' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "Le nombre d'enfants" %></label>
+      <div class="formRight">
+        <%= text_field_tag "married[number_of_children]", nil, placeholder: "Veuillez entrer le nombre d'enfants", class: 'form-control' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "L'ethnie" %></label>
+      <div class="formRight">
+        <%= select_tag "married[tribe_id]", options_from_collection_for_select(@tribes, "id", "name"), prompt: "-L'ethnie du partenaire-", class: "form-control" %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  <%# end %>
+  <div class="line"></div>
+</div>
+<!-- End mate -->

@@ -1,0 +1,46 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Modifier une ethnie</h5>
+            <span>Modifications liées aux ethnies des fidèles.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "tribes/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <!-- Widgets -->
+  <%= tribe_messages! %>
+  <%= form_for @tribe, method: :post, url: update_tribe_path, html: {class: 'form'} do |f| %>
+    <fieldset>
+      <!-- Create devoted widget -->
+      <div class="widget">
+        <div class="title"><img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" /><h6>Mettre à jour l'ethnie intitulée: <%= @tribe.name.empty? ? @tribe_name : @tribe.name %></h6></div>
+
+          <div class="formRow">
+            <label><%= f.label :name %></label>
+            <div class="formRight">
+              <%= f.text_field :name, placeholder: "Veuillez entrer l'ethnie", class: 'form-control' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <%= f.submit 'Valider', class: 'basic' %>
+          </div>
+      </div>
+      <!-- End Create devoted widget -->
+    </fieldset>
+  <% end %>
+
+
+</div>
+<!-- End Main content wrapper -->

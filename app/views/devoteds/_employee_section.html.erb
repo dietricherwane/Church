@@ -1,0 +1,29 @@
+<!-- Begin Student -->
+<div id = "employee_section">
+  <div class="line"></div>
+  <%#= form_for @employee, method: :post, url: create_employee_path do |e| %>
+    <div class="formRow">
+      <label><%= label_tag "Le nom de l'entreprise" %></label>
+      <div class="formRight">
+        <%= text_field_tag "employee[company_name]", nil, placeholder: "Veuillez entrer le nom de l'entreprise", class: 'form-control ' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "Le numéro de téléphone" %></label>
+      <div class="formRight">
+        <%= text_field_tag "employee[company_phone_number]", nil, placeholder: "Veuillez entrer le numéro de téléphone de l'entreprise", class: 'form-control ' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="formRow">
+      <label><%= label_tag "Le poste occupé" %></label>
+      <div class="formRight">
+        <%= text_field_tag "employee[job]", nil, placeholder: "Veuillez entrer le poste au sein de l'entreprise", class: 'form-control ' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  <%# end %>
+  <div class="line"></div>
+</div>
+<!-- End Student -->
