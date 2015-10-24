@@ -5,21 +5,21 @@
     <div class="formRow">
       <label><%= label_tag "La classe ou filière" %></label>
       <div class="formRight">
-        <%= text_field_tag "student[class_branch]", nil, placeholder: "Veuillez entrer la classe ou la filière", class: 'form-control ' %>
+        <%= text_field_tag "student[class_branch]", (@student.class_branch rescue nil), placeholder: "Veuillez entrer la classe ou la filière", class: 'form-control ' %>
       </div>
       <div class="clear"></div>
     </div>
     <div class="formRow">
       <label><%= label_tag "L'école" %></label>
       <div class="formRight">
-        <%= text_field_tag "student[school]", nil, placeholder: "Veuillez entrer le nom de l'école", class: 'form-control ' %>
+        <%= text_field_tag "student[school]", (@student.school rescue nil), placeholder: "Veuillez entrer le nom de l'école", class: 'form-control ' %>
       </div>
       <div class="clear"></div>
     </div>
     <div class="formRow">
       <label><%= label_tag "Le numéro de téléphone" %></label>
       <div class="formRight">
-        <%= text_field_tag "student[school_phone_number]", nil, placeholder: "Veuillez entrer le numéro de téléphone de l'école", class: 'form-control ' %>
+        <%= text_field_tag "student[school_phone_number]", (@student.school_phone_number rescue nil), placeholder: "Veuillez entrer le numéro de téléphone de l'école", class: 'form-control ' %>
       </div>
       <div class="clear"></div>
     </div>

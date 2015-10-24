@@ -11,7 +11,6 @@ class Status < ActiveRecord::Base
   has_one :baptism
 
   # Scopes
-  default_scope {order("name ASC")}
 
   # Renaming attributes into more friendly text
   HUMANIZED_ATTRIBUTES = {

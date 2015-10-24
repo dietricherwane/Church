@@ -11,7 +11,6 @@ class SocialStatus < ActiveRecord::Base
   has_one :student
 
   # Scopes
-  default_scope {order("name ASC")}
 
   # Renaming attributes into more friendly text
   HUMANIZED_ATTRIBUTES = {

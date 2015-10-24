@@ -24,6 +24,6 @@ class Student < ActiveRecord::Base
   end
 
   # Validations
-  validates :class_branch, :school, :social_status_id, presence: true
-  validates :class_branch, :school, length: {maximum: 150}
+  validates :social_status_id, presence: true
+  validates :class_branch, :school, length: {maximum: 150, allow_blank: true}
 end

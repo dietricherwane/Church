@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'wsdl_mtns/get_bill'
+
   root 'home#index'
+
+  wash_out :wsdl_mtns
 
   ## Devoted
   get '/devoted/new' => 'devoteds#index', as: :new_devoted
   post '/devoted/create' => 'devoteds#create', as: :create_devoted
   get '/devoted/create' => 'devoteds#index'
   get '/devoted/show' => 'devoteds#show', as: :devoted
+  get '/devoted/edit/:id' => 'devoteds#edit', as: :edit_devoted
+  post '/devoted/update/:id' => 'devoteds#update', as: :update_devoted
+  get '/devoted/update/:id' => 'devoteds#edit'
+  get '/devoted/enable/:id' => 'devoteds#enable', as: :enable_devoted
+  get '/devoted/disable/:id' => 'devoteds#disable', as: :disable_devoted
 
   ## Status List
   get '/status_list/new' => 'status_lists#index', as: :new_status_list

@@ -26,6 +26,6 @@ class Baptism < ActiveRecord::Base
   end
 
   # Validations
-  validates :baptism_date, :place, :ministry, :status_id, presence: true
-  validates :place, :ministry, length: {in: 2..150}
+  validates :status_id, presence: true
+  #validates :place, :ministry, length: {in: 2..150}
 end

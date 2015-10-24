@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212180627) do
+ActiveRecord::Schema.define(version: 20141214103852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20141212180627) do
     t.string   "place",                     limit: 150
     t.string   "ministry",                  limit: 150
     t.integer  "baptist_responsibility_id"
+    t.integer  "status_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "status_id"
   end
 
   create_table "baptist_responsibilities", force: true do |t|

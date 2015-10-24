@@ -23,4 +23,9 @@ class StatusList < ActiveRecord::Base
   # Validations
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  # Custom functions
+  def self.baptised_id
+    return (find_by_name("Baptisé").id rescue nil)
+  end
 end

@@ -29,6 +29,6 @@ class Married < ActiveRecord::Base
   end
 
   # Validations
-  validates :marital_status_id, :spouse_firstname, :spouse_lastname, presence: true
-  validates :number_of_children, numericality: { only_integer: true }
+  validates :marital_status_id, presence: true
+  validates :number_of_children, numericality: { only_integer: true, allow_blank: true }
 end

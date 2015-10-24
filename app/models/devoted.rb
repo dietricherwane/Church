@@ -9,13 +9,13 @@ class Devoted < ActiveRecord::Base
   # Relationships
   belongs_to :tribe
   has_one :status
-  has_one :baptism, through: :status
-  has_one :basic_course, through: :status
-  has_one :married, through: :marital_status
-  has_one :employee, through: :social_status
-  has_one :student, through: :social_status
-
-  accepts_nested_attributes_for :baptism
+  has_one :marital_status
+  has_one :social_status
+  #has_one :baptism, through: :status
+  #has_one :basic_course, through: :status
+  #has_one :married, through: :marital_status
+  #has_one :employee, through: :social_status
+  #has_one :student, through: :social_status
 
   # Scopes
   default_scope {order("created_at DESC")}
@@ -46,4 +46,9 @@ class Devoted < ActiveRecord::Base
   validates :firstname, :lastname, length: {in: 2..150}
   validates :identity_card_number, length: {maximum: 20}
   validates :identity_card_number, uniqueness: true
+
+  # Custom functions
+  def full_name
+    return "#{lastname} #{firstname}"
+  end
 end

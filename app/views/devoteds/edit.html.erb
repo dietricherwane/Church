@@ -1,0 +1,154 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Modifier le profil d'un fidèle</h5>
+            <span>Modifications liées aux profils des fidèles.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "devoteds/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <!-- Widgets -->
+  <%= devoted_messages! %>
+  <%= form_for @devoted, method: :post, url: update_devoted_path, html: {class: 'form'} do |f| %>
+    <fieldset>
+      <!-- Create devoted widget -->
+      <div class="widget">
+        <div class="title"><img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" /><h6>Mettre à jour le profil de: <%= @devoted.full_name.empty? ? @devoted_name : @devoted.full_name %></h6></div>
+
+          <div class="formRow">
+            <label><%= f.label :firstname %></label>
+            <div class="formRight">
+              <%= f.text_field :firstname, placeholder: 'Veuillez entrer le nom du fidèle', class: 'form-control' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <label><%= f.label :lastname %></label>
+            <div class="formRight">
+              <%= f.text_field :lastname, placeholder: 'Veuillez entrer les prénoms du fidèle', class: 'form-control' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <label><%= f.label :birthdate %></label>
+            <div class="formRight">
+              <%= f.text_field :birthdate, placeholder: "Veuillez entrer la date de naissance du fidèle", class: 'form-control maskDate' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <label><%= f.label :birthplace %></label>
+            <div class="formRight">
+              <%= f.text_field :birthplace, placeholder: "Veuillez entrer le lieu de naissance du fidèle", class: 'form-control' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <label><%= f.label :identity_card_number %></label>
+            <div class="formRight">
+              <%= f.text_field :identity_card_number, placeholder: "Veuillez entrer le numéro de carte d'identité du fidèle", class: 'form-control' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <label><%= f.label :phone_number %></label>
+            <div class="formRight">
+              <%= f.text_field :phone_number, placeholder: 'Veuillez entrer le numéro de téléphone fixe du fidèle', class: 'form-control' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <label><%= f.label :mobile_number %></label>
+            <div class="formRight">
+              <%= f.text_field :mobile_number, placeholder: 'Veuillez entrer le numéro de téléphone mobile du fidèle', class: 'form-control' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <label><%= f.label :address %></label>
+            <div class="formRight">
+              <%= f.text_field :address, placeholder: "Veuillez entrer l'adresse du fidèle", class: 'form-control' %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <label><%= f.label :tribe_id %></label>
+            <div class="formRight">
+              <%= f.collection_select :tribe_id, @tribes, :id, :name, options ={prompt: "-Veuillez choisir une ethnie-"}, html_options = {class: "form-control"} %>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="formRow">
+            <label><%= f.label :status_id %></label>
+            <div class="formRight">
+              <%= f.collection_select :status_id, @status_lists, :id, :name, options ={prompt: "-Veuillez choisir un statut-"}, html_options = {class: "form-control"} %>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <!-- Baptism section -->
+          <% @status = @devoted.status %>
+          <% if (@status.status_list_id rescue nil) == StatusList.baptised_id %>
+            <% @baptism = @status.baptism %>
+            <%= render 'baptism_section', locals: {baptism: @baptism} %>
+          <% end %>
+          <!-- End Baptism section -->
+
+          <div class="formRow">
+            <label><%= f.label :marital_status_id %></label>
+            <div class="formRight">
+              <%= f.collection_select :marital_status_id, @marital_status_lists, :id, :name, options ={prompt: "-Veuillez choisir l'état matrimonial-"}, html_options = {class: "form-control"} %>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <!-- Mate section -->
+          <% @marital_status = @devoted.marital_status %>
+          <% if ([MaritalStatusList.married_id, MaritalStatusList.fiance_id, MaritalStatusList.widowed_id, MaritalStatusList.concubine_id].include?((@marital_status.marital_status_list_id rescue nil))) %>
+            <% @married = @marital_status.married %>
+            <%= render 'mate_section', locals: {tribes: @tribes, married: @married} %>
+          <% end %>
+          <!-- End Mate section -->
+
+          <div class="formRow">
+            <label><%= f.label :social_status_id %></label>
+            <div class="formRight">
+              <%= f.collection_select :social_status_id, @social_status_lists, :id, :name, options ={prompt: "-Veuillez choisir le statut social-"}, html_options = {class: "form-control"} %>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <!-- Social status section -->
+          <% @social_status = @devoted.social_status %>
+          <% if (@social_status.social_status_list_id rescue nil) == SocialStatusList.employee_id %>
+            <% @employee = @social_status.employee %>
+            <%= render 'employee_section', locals: {employee: @employee} %>
+          <% end %>
+
+          <% if (@social_status.social_status_list_id rescue nil) == SocialStatusList.student_id %>
+            <% @student = @social_status.student %>
+            <%= render 'student_section', locals: {student: @student} %>
+          <% end %>
+          <!-- End Social status section -->
+          <div class="formRow">
+            <%= f.submit 'Valider', class: 'basic' %>
+          </div>
+      </div>
+      <!-- End Create devoted widget -->
+    </fieldset>
+  <% end %>
+
+
+</div>
+<!-- End Main content wrapper -->

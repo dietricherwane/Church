@@ -23,4 +23,21 @@ class MaritalStatusList < ActiveRecord::Base
   # Validations
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  # Custom functions
+  def self.married_id
+    return (find_by_name("Marié (e)").id rescue nil)
+  end
+
+  def self.fiance_id
+    return (find_by_name("Fiancé (e)").id rescue nil)
+  end
+
+  def self.widowed_id
+    return (find_by_name("Veuf (ve)").id rescue nil)
+  end
+
+  def self.concubine_id
+    return (find_by_name("Concubin (e)").id rescue nil)
+  end
 end

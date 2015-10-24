@@ -10,7 +10,6 @@ class MaritalStatus < ActiveRecord::Base
   belongs_to :marital_status_list
 
   # Scopes
-  default_scope {order("name ASC")}
 
   # Renaming attributes into more friendly text
   HUMANIZED_ATTRIBUTES = {

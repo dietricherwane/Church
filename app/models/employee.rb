@@ -24,6 +24,6 @@ class Employee < ActiveRecord::Base
   end
 
   # Validations
-  validates :company_name, :job, :social_status_id, presence: true
+  validates :social_status_id, presence: true
   validates :company_phone_number, length: {maximum: 16, allow_blank: true}
 end

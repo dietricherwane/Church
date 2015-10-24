@@ -1,0 +1,63 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des fidèles</h5>
+            <span>Prise en charge des actions liées à la liste des fidèles.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "devoteds/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= devoted_messages! %>
+<!-- Widgets -->
+  <div class="widget">
+    <div class="title"><img src="<%= asset_path 'icons/dark/full2.png' %>" alt="" class="titleIcon" /><h6>Liste des fidèles</h6></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénoms</th>
+          <th>Numéro d'extrait de naissance</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless @devoteds.blank? %>
+          <% @devoteds.each do |devoted| %>
+            <tr class="gradeA">
+              <% css_class = (devoted.published == false ? 'taskD' : 'taskPr') %>
+              <td class = "<%= css_class %>">
+                <%= devoted.firstname %>
+              </td>
+              <td>
+                <%= devoted.lastname %>
+              </td>
+              <td>
+                <%= devoted.identity_card_number %>
+              </td>
+              <td class = "actBtns">
+                <a href="<%= edit_devoted_path(devoted.id) %>" class="tipS" original-title="Modifier"><%= image_tag('icons/edit.png', alt: '') %></a>
+                <% if devoted.published == false %>
+                  <a href="<%= enable_devoted_path(devoted.id) %>" class="tipS" original-title="Activer"><%= image_tag('icons/updateDone.png', alt: '') %></a>
+                <% else %>
+                  <a href="<%= disable_devoted_path(devoted.id) %>" class="tipS" original-title="Désactiver"><%= image_tag('icons/remove.png', alt: '') %></a>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Main content wrapper -->

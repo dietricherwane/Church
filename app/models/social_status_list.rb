@@ -23,4 +23,13 @@ class SocialStatusList < ActiveRecord::Base
   # Validations
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  # Custom functions
+  def self.student_id
+    return (find_by_name("Elève").id rescue nil)
+  end
+
+  def self.employee_id
+    return (find_by_name("Employé").id rescue nil)
+  end
 end
